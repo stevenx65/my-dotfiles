@@ -35,7 +35,7 @@
 
 ## Installation | 安装
 
-### Method 1: GNU Stow (Recommended) / 方法1: GNU Stow （推荐）
+### Method 1: GNU Stow (Recommended) / 方法 1: GNU Stow（推荐）
 
 ```bash
 cd ~
@@ -50,9 +50,9 @@ stow hypr kitty waybar yazi mako tmux
 
 ---
 
-### Method 2: install.sh / 方法2: install.sh
+### Method 2: install.sh / 方法 2: install.sh
 
-  此脚本会执行以下操作：
+此脚本会执行以下操作：
 - 备份现有配置到 `~/.config_backup_<timestamp>/`
 - 复制配置文件到 `~/.config/`
 - 执行 `sudo pacman -S` 安装系统包（Hyprland、Waybar 等）
@@ -60,6 +60,35 @@ stow hypr kitty waybar yazi mako tmux
 ```bash
 ./install.sh
 ```
+
+#### Selective Installation / 选择性安装
+
+可以只安装特定的配置：
+
+```bash
+# 列出可用配置
+./install.sh -l
+
+# 只安装 Hyprland 和 Waybar
+./install.sh -c hypr -c waybar
+
+# 只安装 tmux（跳过确认）
+./install.sh -c tmux -y
+
+# 显示帮助
+./install.sh -h
+```
+
+**可用配置 / Available Configurations:**
+
+| 选项 | 说明 |
+|------|------|
+| `hypr` | Hyprland 窗口管理器配置 |
+| `waybar` | Waybar 状态栏配置 |
+| `kitty` | Kitty 终端配置 |
+| `yazi` | Yazi 文件管理器配置 |
+| `mako` | Mako 通知守护进程配置 |
+| `tmux` | Tmux 终端复用器配置 |
 
 > 请查看 [install.sh](install.sh) 源码了解具体行为后再运行。
 
