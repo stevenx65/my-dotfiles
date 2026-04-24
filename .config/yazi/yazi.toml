@@ -1,0 +1,81 @@
+# Yazi configuration (v0.4+ format)
+
+[mgr]
+ratio = [1, 3, 4]
+sort_by = "mtime"
+sort_sensitive = false
+sort_reverse = true
+sort_dir_first = true
+show_hidden = true
+show_symlink = true
+linemode = "size"
+mouse = true
+
+tab_size = 4
+
+title_format = "{cwd}"
+
+true_color = true
+
+[preview]
+max_width = 600
+max_height = 900
+tab_size = 4
+image_filter = "triangle"
+image_quality = 75
+enable = true
+
+# Openers
+[opener]
+edit = [{ run = 'neovide "$@"', orphan = true, desc = "Neovide (GUI)" }]
+video_play = [{ run = 'vlc "$@"', orphan = true, desc = "VLC Media Player" }]
+image_view = [{ run = 'imv -w none "$@"', orphan = true, desc = "imv Image Viewer" }]
+libreoffice = [{ run = 'libreoffice "$@"', orphan = true, desc = "LibreOffice" }]
+diive = [{ run = 'diive "$@"', orphan = true, desc = "Diive Image Viewer" }]
+
+# Open rules - using new prepend_rules syntax
+[open]
+prepend_rules = [
+    { name = "*.avi", use = ["video_play"] },
+    { name = "*.bmp", use = ["image_view"] },
+    { name = "*.doc", use = ["libreoffice"] },
+    { name = "*.docx", use = ["libreoffice"] },
+    { name = "*.gif", use = ["image_view"] },
+    { name = "*.heic", use = ["image_view"] },
+    { name = "*.heif", use = ["image_view"] },
+    { name = "*.jpeg", use = ["image_view"] },
+    { name = "*.jpg", use = ["image_view"] },
+    { name = "*.mov", use = ["video_play"] },
+    { name = "*.mkv", use = ["video_play"] },
+    { name = "*.mp4", use = ["video_play"] },
+    { name = "*.pdf", use = ["libreoffice"] },
+    { name = "*.png", use = ["image_view"] },
+    { name = "*.ppt", use = ["libreoffice"] },
+    { name = "*.pptx", use = ["libreoffice"] },
+    { name = "*.webp", use = ["image_view"] },
+    { name = "*.webm", use = ["video_play"] },
+    { name = "*.xls", use = ["libreoffice"] },
+    { name = "*.xlsx", use = ["libreoffice"] },
+    { mime = "text/*", use = ["edit"] },
+    { mime = "image/svg+xml", use = ["image_view"] },
+    { mime = "image/*", use = ["image_view"] },
+    { mime = "video/*", use = ["video_play"] },
+    { mime = "audio/*", use = ["video_play"] },
+]
+append_rules = [{ name = "*", use = ["edit"] }]
+
+# Plugin configuration
+[plugin]
+# preload all plugins here
+preload = ["git.yazi"]
+
+[keymap]
+input.keymap = [
+    { run = "close", on = ["<Esc>"] },
+    { run = "backward_delete", on = ["<C-h>"] },
+    { run = "backward_kill_word", on = ["<C-w>"] },
+    { run = "kill_word", on = ["<A-d>"] },
+    { run = "home", on = ["<Home>"] },
+    { run = "end", on = ["<End>"] },
+    { run = "delete", on = ["<Delete>"] },
+]

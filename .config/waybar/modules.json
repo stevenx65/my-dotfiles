@@ -1,0 +1,107 @@
+{
+  "custom/arch": {
+    "format": "󰣇",
+    "tooltip": true,
+    "tooltip-format": "btw",
+    "on-click": "wlogout"
+  },
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "warp-on-scroll": false,
+    "format": "{name}",
+    "format-icons": {
+      "urgent": "",
+      "active": "",
+      "default": ""
+    }
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "{icon} {volume}% \uf8f1 {format_source}",
+    "format-bluetooth-muted": "\ufc97 {icon}\uf8f1 {format_source}",
+    "format-muted": "\ufc97 {format_source}",
+    "format-source": "\uf130 {volume}%",
+    "format-source-muted": "\uf131",
+    "format-icons": {
+      "headphone": "\uf025",
+      "hands-free": "\uf593",
+      "headset": "\uf590",
+      "phone": "\uf095",
+      "portable": "\uf095",
+      "car": "\uf1b9",
+      "default": ["\uf026", "\uf027", "\uf028"]
+    },
+    "on-click": "pavucontrol"
+  },
+  "network": {
+    "format-wifi": "\uf1eb {essid} ({signalStrength}%)",
+    "format-ethernet": "{ipaddr}/{cidr} \uf796",
+    "tooltip-format": "{ifname} via {gwaddr} \uf796",
+    "format-linked": "{ifname} (No IP) \uf796",
+    "format-disconnected": "Disconnected ⚠",
+    "on-click": "nm-connection-editor"
+  },
+  "cpu": {
+    "format": "\uf2db {usage}%",
+    "tooltip": true,
+    "on-click": "btop"
+  },
+  "memory": {
+    "format": "\uf538 {}%",
+    "tooltip": true
+  },
+  "temperature": {
+    "interval": 10,
+    "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input",
+    "critical-threshold": 100,
+    "format-critical": "\uf2c7 {temperatureC}",
+    "format": "\uf2c8 {temperatureC}°C"
+  },
+  "hyprland/language": {
+    "format": "\uf0ac {}",
+    "format-cn": "CN",
+    "format-ru": "RU"
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-full": "{icon} {capacity}%",
+    "format-charging": "\uf1e6 {capacity}%",
+    "format-plugged": "\uf1e6 {capacity}%",
+    "format-alt": "{time} {icon}",
+    "format-icons": ["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"]
+  },
+  "battery#bat2": {
+    "bat": "BAT2"
+  },
+  "clock": {
+    "format": "{:%H:%M | %e %B} ",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%Y-%m-%d}"
+  },
+  "tray": {
+    "icon-size": 18,
+    "spacing": 10,
+    "exclude": ["fcitx", "fcitx5"],
+    "show-passive-items": true
+  },
+  "bluetooth": {
+    "format": "\uf5aa {status}",
+    "format-connected": "\uf294 {device_alias}",
+    "format-disabled": "\uf5aa OFF",
+    "on-click": "blueman-manager",
+    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+  }
+}

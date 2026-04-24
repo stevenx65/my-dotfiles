@@ -1,0 +1,425 @@
+# Yazi keymap configuration (v0.4+ format)
+# Documentation: https://yazi-rs.github.io/docs/configuration/keymap
+
+###################################
+# Manager (文件管理器) 快捷键
+###################################
+
+# --- 基础导航 & 智能插件 ---
+[[mgr.prepend_keymap]]
+on = ["l"]
+run = "plugin smart-enter"
+desc = "智能进入 (目录进入/文件打开)"
+
+[[mgr.prepend_keymap]]
+on = ["<Enter>"]
+run = "plugin smart-enter"
+desc = "智能进入 (目录进入/文件打开)"
+
+[[mgr.prepend_keymap]]
+on = ["h"]
+run = "leave"
+desc = "返回上级目录"
+
+[[mgr.prepend_keymap]]
+on = ["j"]
+run = "arrow 1"
+desc = "向下移动"
+
+[[mgr.prepend_keymap]]
+on = ["k"]
+run = "arrow -1"
+desc = "向上移动"
+
+# --- 隐藏文件控制 ---
+[[mgr.prepend_keymap]]
+on = ["."]
+run = "hidden toggle"
+desc = "切换隐藏文件"
+
+[[mgr.prepend_keymap]]
+on = ["<C-h>"]
+run = "hidden toggle"
+desc = "切换隐藏文件"
+
+# --- 标签页 (Tabs) 管理 ---
+[[mgr.prepend_keymap]]
+on = ["t"]
+run = "tab_create --current"
+desc = "创建新标签"
+
+[[mgr.prepend_keymap]]
+on = ["w"]
+run = "tab_close"
+desc = "关闭当前标签"
+
+[[mgr.prepend_keymap]]
+on = ["["]
+run = "tab_switch -1 --relative"
+desc = "上一个标签"
+
+[[mgr.prepend_keymap]]
+on = ["]"]
+run = "tab_switch 1 --relative"
+desc = "下一个标签"
+
+[[mgr.prepend_keymap]]
+on = ["<A-1>"]
+run = "tab_switch 0"
+desc = "切换到标签 1"
+
+[[mgr.prepend_keymap]]
+on = ["<A-2>"]
+run = "tab_switch 1"
+desc = "切换到标签 2"
+
+[[mgr.prepend_keymap]]
+on = ["<A-3>"]
+run = "tab_switch 2"
+desc = "切换到标签 3"
+
+[[mgr.prepend_keymap]]
+on = ["<A-4>"]
+run = "tab_switch 3"
+desc = "切换到标签 4"
+
+[[mgr.prepend_keymap]]
+on = ["<A-5>"]
+run = "tab_switch 4"
+desc = "切换到标签 5"
+
+# --- 文件编辑 & 打开 ---
+[[mgr.prepend_keymap]]
+on = ["e"]
+run = 'shell "$EDITOR \"$@\"" --block'
+desc = "编辑文件"
+
+[[mgr.prepend_keymap]]
+on = ["E"]
+run = 'shell "neovide \"$@\"" --orphan'
+desc = "用 Neovide 打开"
+
+[[mgr.prepend_keymap]]
+on = ["o"]
+run = "open --interactive"
+desc = "弹出打开方式菜单"
+
+# --- 文件管理 ---
+[[mgr.prepend_keymap]]
+on = ["v"]
+run = "visual_mode"
+desc = "进入可视化选中模式"
+
+[[mgr.prepend_keymap]]
+on = ["y"]
+run = "yank"
+desc = "复制"
+
+[[mgr.prepend_keymap]]
+on = ["x"]
+run = "yank --cut"
+desc = "剪切"
+
+[[mgr.prepend_keymap]]
+on = ["p"]
+run = "paste"
+desc = "粘贴"
+
+[[mgr.prepend_keymap]]
+on = ["d"]
+run = "remove --trash"
+desc = "移至回收站"
+
+[[mgr.prepend_keymap]]
+on = ["D"]
+run = "remove --permanently"
+desc = "永久删除"
+
+[[mgr.prepend_keymap]]
+on = ["r"]
+run = "rename --cursor=before_ext"
+desc = "重命名"
+
+[[mgr.prepend_keymap]]
+on = ["a"]
+run = "create"
+desc = "创建文件"
+
+[[mgr.prepend_keymap]]
+on = ["A"]
+run = "create --dir"
+desc = "创建文件夹"
+
+[[mgr.prepend_keymap]]
+on = ["<C-g>"]
+run = "cd --interactive"
+desc = "交互式 cd"
+
+# --- 查找与跳转 (插件) ---
+[[mgr.prepend_keymap]]
+on = ["/"]
+run = "filter --smart"
+desc = "过滤搜索"
+
+[[mgr.prepend_keymap]]
+on = ["z"]
+run = "plugin zoxide"
+desc = "Zoxide 快速跳转"
+
+[[mgr.prepend_keymap]]
+on = ["f"]
+run = "plugin fzf"
+desc = "FZF 模糊搜索"
+
+# --- 选择和操作 ---
+[[mgr.prepend_keymap]]
+on = ["<Space>"]
+run = "toggle"
+desc = "选中/取消选中"
+
+[[mgr.prepend_keymap]]
+on = ["<C-a>"]
+run = "toggle_all --state=true"
+desc = "全选"
+
+[[mgr.prepend_keymap]]
+on = ["<C-u>"]
+run = "toggle_all --state=false"
+desc = "取消全选"
+
+[[mgr.prepend_keymap]]
+on = ["<C-r>"]
+run = "refresh"
+desc = "刷新"
+
+# --- 排序切换 ---
+[[mgr.prepend_keymap]]
+on = [",m"]
+run = "sort modified --reverse"
+desc = "按修改时间排序"
+
+[[mgr.prepend_keymap]]
+on = [",s"]
+run = "sort size --reverse"
+desc = "按大小排序"
+
+[[mgr.prepend_keymap]]
+on = [",n"]
+run = "sort natural"
+desc = "按自然顺序排序"
+
+# --- 系统与剪贴板 ---
+[[mgr.prepend_keymap]]
+on = ["c"]
+run = "yank"
+desc = "复制 (yazi 内部)"
+
+[[mgr.prepend_keymap]]
+on = ["C"]
+run = "copy path"
+desc = "复制文件绝对路径到系统剪贴板"
+
+[[mgr.prepend_keymap]]
+on = ["yy"]
+run = "copy filename"
+desc = "复制文件名到系统剪贴板"
+
+# --- 压缩解压 (插件) ---
+[[mgr.prepend_keymap]]
+on = ["Z"]
+run = "plugin compress"
+desc = "压缩选中文件"
+
+# --- 权限修改 (插件) ---
+[[mgr.prepend_keymap]]
+on = ["M"]
+run = "plugin chmod"
+desc = "修改权限"
+
+# --- Git 集成 (插件) ---
+[[mgr.prepend_keymap]]
+on = ["g", "g"]
+run = "plugin git --args=status"
+desc = "Git 状态"
+
+[[mgr.prepend_keymap]]
+on = ["g", "b"]
+run = "plugin git --args=branch"
+desc = "Git 分支"
+
+# --- Diff (插件) ---
+[[mgr.prepend_keymap]]
+on = ["=", "="]
+run = "plugin diff"
+desc = "比较差异 (选中 vs 悬停)"
+
+# --- 书签跳转 ---
+[[mgr.prepend_keymap]]
+on = ["g", "u"]
+run = "cd /run/media/steven_xu/"
+desc = "跳转到 U 盘"
+
+[[mgr.prepend_keymap]]
+on = ["g", "d"]
+run = "cd ~/Downloads/"
+desc = "跳转到 Downloads"
+
+[[mgr.prepend_keymap]]
+on = ["g", "D"]
+run = "cd ~/Documents/"
+desc = "跳转到 Documents"
+
+[[mgr.prepend_keymap]]
+on = ["g", "h"]
+run = "cd ~"
+desc = "跳转到 Home"
+
+[[mgr.prepend_keymap]]
+on = ["g", "/"]
+run = "cd /"
+desc = "跳转到根目录"
+
+# --- 退出 ---
+[[mgr.prepend_keymap]]
+on = ["q"]
+run = "quit"
+desc = "退出 Yazi"
+
+[[mgr.prepend_keymap]]
+on = ["<C-q>"]
+run = "quit"
+desc = "退出 Yazi"
+
+###################################
+# Input (输入框) 快捷键
+###################################
+[[input.prepend_keymap]]
+on = ["<Esc>"]
+run = "close"
+desc = "取消输入"
+
+[[input.prepend_keymap]]
+on = ["<C-c>"]
+run = "close"
+desc = "取消输入"
+
+[[input.prepend_keymap]]
+on = ["<C-w>"]
+run = "backward_kill_word"
+desc = "向后删除一个词"
+
+[[input.prepend_keymap]]
+on = ["<C-u>"]
+run = "backward_kill_line"
+desc = "删除整行"
+
+[[input.prepend_keymap]]
+on = ["<C-a>"]
+run = "move_home"
+desc = "跳到行首"
+
+[[input.prepend_keymap]]
+on = ["<C-e>"]
+run = "move_end"
+desc = "跳到行尾"
+
+[[input.prepend_keymap]]
+on = ["<C-d>"]
+run = "delete"
+desc = "删除字符"
+
+###################################
+# Confirm (确认框) 快捷键
+###################################
+#[[confirm.prepend_keymap]]
+#on = ["y"]
+#run = "choice --yes"
+#desc = "确认"
+
+#[[confirm.prepend_keymap]]
+#on = ["<Enter>"]
+#run = "choice --yes"
+#desc = "确认"
+
+#[[confirm.prepend_keymap]]
+#on = ["n"]
+#run = "choice --no"
+#desc = "取消"
+
+#[[confirm.prepend_keymap]]
+#on = ["<Esc>"]
+#run = "choice --no"
+#desc = "取消"
+
+#[[confirm.prepend_keymap]]
+#on = ["q"]
+#run = "close"
+#desc = "关闭确认框"
+
+
+###################################
+# Completion (自动完成) 快捷键
+###################################
+[[completion.prepend_keymap]]
+on = ["<C-e>"]
+run = "close"
+desc = "关闭完成菜单"
+
+[[completion.prepend_keymap]]
+on = ["<C-y>"]
+run = "accept"
+desc = "接受选择"
+
+[[completion.prepend_keymap]]
+on = ["<Tab>"]
+run = "arrow 1"
+desc = "下一个"
+
+[[completion.prepend_keymap]]
+on = ["<S-Tab>"]
+run = "arrow -1"
+desc = "上一个"
+
+###################################
+# Help (帮助) 快捷键
+###################################
+[[help.prepend_keymap]]
+on = ["<Esc>"]
+run = "close"
+desc = "关闭帮助"
+
+[[help.prepend_keymap]]
+on = ["q"]
+run = "close"
+desc = "关闭帮助"
+
+###################################
+# Spot (预览) 快捷键
+###################################
+[[spot.prepend_keymap]]
+on = ["<Esc>"]
+run = "close"
+desc = "关闭 Spot"
+
+###################################
+# Pick (选择) 快捷键
+###################################
+[[pick.prepend_keymap]]
+on = ["<Esc>"]
+run = "close"
+desc = "关闭选择"
+
+[[pick.prepend_keymap]]
+on = ["<CR>"]
+run = "choose"
+desc = "选择"
+
+[[pick.prepend_keymap]]
+on = ["<C-n>"]
+run = "arrow 1"
+desc = "下一个"
+
+[[pick.prepend_keymap]]
+on = ["<C-p>"]
+run = "arrow -1"
+desc = "上一个"

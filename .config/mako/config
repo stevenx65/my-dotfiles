@@ -1,0 +1,71 @@
+# Mako Notification Daemon Configuration
+# 迁移自 SwayNC 配置
+
+# 位置和锚点（对应 swaync: positionX/right, positionY/top）
+# anchor 可选: top-left, top-center, top-right, bottom-left, bottom-center, bottom-right, left, center, right
+anchor=top-right
+
+# 边距 (单一margin值)
+margin=10
+
+# 通知尺寸（对应 notification-window-width）
+width=500
+
+# 超时设置（毫秒，mako使用毫秒）
+default-timeout=5000
+
+# 分层（对应 layer: overlay）
+layer=overlay
+
+# 字体设置（匹配 swaync 样式）
+font=monospace 11
+
+# 背景颜色（对应 swaync --cc-bg）
+# 使用 RGBA: rgba(46, 46, 46, 0.7) = #2e2e2e + B3 (0.7 opacity)
+background-color=#2e2e2eb3
+
+# 文字颜色（对应 text-color）
+text-color=#ffffff
+
+# 边框设置（对应 --noti-border-color）
+border-color=#ffffff26
+border-size=1
+border-radius=12
+
+# 图标设置（对应 notification-icon-size）
+icon-path=/usr/share/icons/hicolor/48x48/status:/usr/share/icons/hicolor/48x48/apps
+max-icon-size=64
+icons=1
+
+# 内边距
+padding=10
+
+# 标记通知为活动时的行为 - 播放提示音
+on-notify=exec canberra-gtk-play -i message
+
+# 格式设置
+format=<b>%s</b>\n%b
+markup=1
+
+# 动作按钮
+actions=1
+
+# 历史通知数量
+max-history=10
+
+# 隐藏时保留通知
+history=1
+
+# 按紧急程度分类处理样式
+[urgency=low]
+default-timeout=5000
+background-color=#2e2e2eb2
+
+[urgency=normal]
+default-timeout=5000
+background-color=#2e2e2eb3
+
+[urgency=critical]
+default-timeout=6000
+background-color=#3e2e2ecc
+on-notify=exec canberra-gtk-play -i dialog-warning

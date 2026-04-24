@@ -1,0 +1,4 @@
+# Stow configuration file
+# Links packages to ~/.config/
+--target=${HOME}/.config
+--dir=.config
