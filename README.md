@@ -194,7 +194,7 @@ Yazi 已配置使用 LibreOffice 打开各种办公文档：
 
 ## Screenshots | 截图
 
-![Desktop Screenshot](assets/hyprland-desktop.png)
+![Desktop Screenshot](assets/screenshot-hyprland.png)
 
 ---
 
