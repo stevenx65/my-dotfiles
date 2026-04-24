@@ -1,36 +1,57 @@
 {
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  //              Custom Modules | 自定义模块                  ┃
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
   "custom/arch": {
-    "format": "󰣇",
-    "tooltip": true,
-    "tooltip-format": "btw",
-    "on-click": "wlogout"
+    "format": "󰣇",                    // Arch Linux logo icon | Arch Linux 标志图标
+    "tooltip": true,                  // Show tooltip | 显示提示
+    "tooltip-format": "btw",          // Tooltip text | 提示文字
+    "on-click": "wlogout"             // Click action: open logout menu | 点击动作：打开注销菜单
   },
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  //              Hyprland Modules | Hyprland 模块              ┃
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
   "hyprland/workspaces": {
-    "disable-scroll": true,
-    "all-outputs": true,
-    "warp-on-scroll": false,
-    "format": "{name}",
-    "format-icons": {
-      "urgent": "",
-      "active": "",
-      "default": ""
+    "disable-scroll": true,           // Disable scroll to switch workspaces | 禁用滚动切换工作区
+    "all-outputs": true,              // Show on all outputs | 在所有显示器上显示
+    "warp-on-scroll": false,          // Don't warp mouse on scroll | 滚动时不移动鼠标
+    "format": "{name}",               // Workspace name format | 工作区名称格式
+    "format-icons": {                 // Icon format | 图标格式
+      "urgent": "",                   // Urgent workspace | 紧急工作区
+      "active": "",                   // Active workspace | 活动工作区
+      "default": ""                   // Default workspace | 默认工作区
     }
   },
+
+  "hyprland/language": {
+    "format": "\uf0ac {}",            // Input source icon + name | 输入源图标 + 名称
+    "format-cn": "CN",                // Chinese input label | 中文输入标签
+    "format-ru": "RU"                 // Russian input label | 俄文输入标签
+  },
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  //              System Monitor Modules | 系统监控模块         ┃
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
   "idle_inhibitor": {
-    "format": "{icon}",
+    "format": "{icon}",               // Icon format | 图标格式
     "format-icons": {
-      "activated": "",
-      "deactivated": ""
+      "activated": "",                // Inhibitor active | 抑制器激活
+      "deactivated": ""               // Inhibitor inactive | 抑制器非激活
     }
   },
+
   "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-bluetooth": "{icon} {volume}% \uf8f1 {format_source}",
-    "format-bluetooth-muted": "\ufc97 {icon}\uf8f1 {format_source}",
-    "format-muted": "\ufc97 {format_source}",
-    "format-source": "\uf130 {volume}%",
-    "format-source-muted": "\uf131",
-    "format-icons": {
+    "format": "{icon} {volume}%",     // Volume format | 音量格式
+    "format-bluetooth": "{icon} {volume}% \uf8f1 {format_source}", // Bluetooth format | 蓝牙格式
+    "format-bluetooth-muted": "\ufc97 {icon}\uf8f1 {format_source}", // Bluetooth muted | 蓝牙静音
+    "format-muted": "\ufc97 {format_source}", // Muted format | 静音格式
+    "format-source": "\uf130 {volume}%", // Source (mic) format | 源（麦克风）格式
+    "format-source-muted": "\uf131",  // Source muted | 源静音
+    "format-icons": {                 // Volume icons | 音量图标
       "headphone": "\uf025",
       "hands-free": "\uf593",
       "headset": "\uf590",
@@ -39,69 +60,89 @@
       "car": "\uf1b9",
       "default": ["\uf026", "\uf027", "\uf028"]
     },
-    "on-click": "pavucontrol"
+    "on-click": "pavucontrol"         // Click action: open pavucontrol | 点击动作：打开 pavucontrol
   },
+
   "network": {
-    "format-wifi": "\uf1eb {essid} ({signalStrength}%)",
-    "format-ethernet": "{ipaddr}/{cidr} \uf796",
-    "tooltip-format": "{ifname} via {gwaddr} \uf796",
-    "format-linked": "{ifname} (No IP) \uf796",
-    "format-disconnected": "Disconnected ⚠",
-    "on-click": "nm-connection-editor"
+    "format-wifi": "\uf1eb {essid} ({signalStrength}%)", // WiFi format | WiFi 格式
+    "format-ethernet": "{ipaddr}/{cidr} \uf796", // Ethernet format | 以太网格式
+    "tooltip-format": "{ifname} via {gwaddr} \uf796", // Tooltip | 提示
+    "format-linked": "{ifname} (No IP) \uf796", // Linked but no IP | 已连接但无 IP
+    "format-disconnected": "Disconnected ⚠", // Disconnected | 已断开
+    "on-click": "nm-connection-editor" // Click action: open network settings | 点击动作：打开网络设置
   },
+
   "cpu": {
-    "format": "\uf2db {usage}%",
-    "tooltip": true,
-    "on-click": "btop"
+    "format": "\uf2db {usage}%",      // CPU usage format | CPU 使用率格式
+    "tooltip": true,                  // Show tooltip | 显示提示
+    "on-click": "btop"                // Click action: open btop | 点击动作：打开 btop
   },
+
   "memory": {
-    "format": "\uf538 {}%",
-    "tooltip": true
+    "format": "\uf538 {}%",           // Memory usage format | 内存使用率格式
+    "tooltip": true                   // Show tooltip | 显示提示
   },
+
   "temperature": {
-    "interval": 10,
-    "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input",
-    "critical-threshold": 100,
-    "format-critical": "\uf2c7 {temperatureC}",
-    "format": "\uf2c8 {temperatureC}°C"
+    "interval": 10,                   // Update interval (seconds) | 更新间隔（秒）
+    "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input", // Temperature sensor path | 温度传感器路径
+    "critical-threshold": 100,        // Critical temperature (°C) | 临界温度
+    "format-critical": "\uf2c7 {temperatureC}", // Critical format | 临界格式
+    "format": "\uf2c8 {temperatureC}°C" // Normal format | 正常格式
   },
-  "hyprland/language": {
-    "format": "\uf0ac {}",
-    "format-cn": "CN",
-    "format-ru": "RU"
-  },
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  //              Battery Modules | 电池模块                   ┃
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
   "battery": {
-    "states": {
-      "warning": 30,
-      "critical": 15
+    "states": {                       // Battery states | 电池状态
+      "warning": 30,                  // Warning threshold (%) | 警告阈值
+      "critical": 15                  // Critical threshold (%) | 临界阈值
     },
-    "format": "{icon} {capacity}%",
-    "format-full": "{icon} {capacity}%",
-    "format-charging": "\uf1e6 {capacity}%",
-    "format-plugged": "\uf1e6 {capacity}%",
-    "format-alt": "{time} {icon}",
-    "format-icons": ["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"]
+    "format": "{icon} {capacity}%",   // Full format | 完整格式
+    "format-full": "{icon} {capacity}%", // Full battery | 满电
+    "format-charging": "\uf1e6 {capacity}%", // Charging format | 充电格式
+    "format-plugged": "\uf1e6 {capacity}%", // Plugged format | 已插入
+    "format-alt": "{time} {icon}",    // Alternative format | 替代格式
+    "format-icons": ["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"] // Battery icons | 电池图标
   },
+
   "battery#bat2": {
-    "bat": "BAT2"
+    "bat": "BAT2"                     // Battery device name | 电池设备名称
   },
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  //              Clock Module | 时钟模块                     ┃
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
   "clock": {
-    "format": "{:%H:%M | %e %B} ",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format-alt": "{:%Y-%m-%d}"
+    "format": "{:%H:%M | %e %B} ",    // Time format | 时间格式
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>", // Calendar tooltip | 日历提示
+    "format-alt": "{:%Y-%m-%d}"       // Alternative format | 替代格式
   },
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  //              Tray Module | 系统托盘模块                  ┃
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
   "tray": {
-    "icon-size": 18,
-    "spacing": 10,
-    "exclude": ["fcitx", "fcitx5"],
-    "show-passive-items": true
+    "icon-size": 18,                  // Icon size (px) | 图标大小
+    "spacing": 10,                    // Spacing between icons | 图标间距
+    "exclude": ["fcitx", "fcitx5"],   // Exclude input methods | 排除输入法
+    "show-passive-items": true        // Show passive items | 显示被动项目
   },
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  //              Bluetooth Module | 蓝牙模块                 ┃
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
   "bluetooth": {
-    "format": "\uf5aa {status}",
-    "format-connected": "\uf294 {device_alias}",
-    "format-disabled": "\uf5aa OFF",
-    "on-click": "blueman-manager",
-    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
-    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+    "format": "\uf5aa {status}",      // Format when no device | 无设备时的格式
+    "format-connected": "\uf294 {device_alias}", // Connected format | 已连接格式
+    "format-disabled": "\uf5aa OFF",  // Disabled format | 禁用格式
+    "on-click": "blueman-manager",    // Click action: open blueman | 点击动作：打开 blueman
+    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{device_enumerate}", // Tooltip | 提示
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}" // Connected tooltip | 已连接提示
   }
 }

@@ -1,33 +1,48 @@
 // -*- mode: jsonc -*-
-{
-    "layer": "top", // Waybar at top layer
-    "position": "top", // Waybar position (top|bottom|left|right)
-    "height": 42, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
-    "spacing": 4, // Gaps between modules (4px)
-    // Choose the order of the modules
-    "modules-left": [
-		"custom/arch",
-    "hyprland/workspaces",
-		"bluetooth",
-    "hyprland/language"
-    ],
-    "modules-center": [
-        "hyprland/window"
-    ],
-    "modules-right": [
-        "pulseaudio",
-        "network",
-        "cpu",
-        "memory",
-        "temperature",
-        "battery",
-        "battery#bat2",
-        "clock"
-    ],
-    //Modules configuration
+// Waybar configuration | Waybar 配置
 
-    "include": [
-		"~/.config/waybar/modules.json"
-	]
-}
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//              Layer & Position | 层级与位置                 ┃
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+"layer": "top",                    // Waybar at top layer | Waybar 在顶层
+"position": "top",                 // Waybar position (top|bottom|left|right) | Waybar 位置
+"height": 42,                      // Waybar height (to be removed for auto height) | Waybar 高度
+// "width": 1280,                   // Waybar width | Waybar 宽度
+"spacing": 4,                      // Gaps between modules (4px) | 模块间距
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//              Module Order | 模块顺序                       ┃
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+// Choose the order of the modules | 选择模块顺序
+"modules-left": [                  // Left side modules | 左侧模块
+    "custom/arch",                 // Arch Linux logo | Arch Linux 标志
+    "hyprland/workspaces",         // Workspace switcher | 工作区切换器
+    "bluetooth",                   // Bluetooth status | 蓝牙状态
+    "hyprland/language"            // Input language | 输入语言
+],
+
+"modules-center": [                // Center modules | 中心模块
+    "hyprland/window"              // Active window title | 活动窗口标题
+],
+
+"modules-right": [                 // Right side modules | 右侧模块
+    "pulseaudio",                  // Audio volume | 音频音量
+    "network",                     // Network status | 网络状态
+    "cpu",                         // CPU usage | CPU 使用率
+    "memory",                      // Memory usage | 内存使用率
+    "temperature",                 // CPU temperature | CPU 温度
+    "battery",                     // Battery status | 电池状态
+    "battery#bat2",                // Secondary battery | 备用电池
+    "clock"                        // Clock and calendar | 时钟和日历
+],
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//           Module Configuration | 模块配置                 ┃
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+// Include detailed module settings from modules.json | 从 modules.json 引入详细模块设置
+"include": [
+    "~/.config/waybar/modules.json"
+]

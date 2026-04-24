@@ -1,81 +1,169 @@
-# Yazi configuration (v0.4+ format)
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#                  Yazi Configuration                       ┃
+#              Yazi 文件管理器配置                           ┃
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#              Manager Settings | 管理器设置                ┃
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 [mgr]
+# Column ratios | 列比例
 ratio = [1, 3, 4]
+
+# Sort by: mtime (modified time), name, size, etc. | 排序方式：修改时间、名称、大小等
 sort_by = "mtime"
+
+# Case-sensitive sorting | 大小写敏感排序
 sort_sensitive = false
+
+# Reverse sort order | 反向排序
 sort_reverse = true
+
+# Show directories first | 优先显示目录
 sort_dir_first = true
+
+# Show hidden files | 显示隐藏文件
 show_hidden = true
+
+# Show symlinks | 显示符号链接
 show_symlink = true
+
+# Line mode: name, size, tree, etc. | 行模式：名称、大小、树状等
 linemode = "size"
+
+# Enable mouse support | 启用鼠标支持
 mouse = true
 
+# Tab size for indentation | 缩进制表符大小
 tab_size = 4
 
+# Title format: {cwd} shows current working directory | 标题格式：{cwd} 显示当前工作目录
 title_format = "{cwd}"
 
+# Enable true color support | 启用真彩色支持
 true_color = true
 
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#              Preview Settings | 预览设置                  ┃
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 [preview]
+# Maximum preview width (characters) | 最大预览宽度（字符）
 max_width = 600
+
+# Maximum preview height (characters) | 最大预览高度（字符）
 max_height = 900
+
+# Tab size for code preview | 代码预览制表符大小
 tab_size = 4
+
+# Image filter: none, triangle, etc. | 图像过滤器：无、三角形等
 image_filter = "triangle"
+
+# Image quality (1-100) | 图像质量
 image_quality = 75
+
+# Enable preview | 启用预览
 enable = true
 
-# Openers
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#              Openers | 打开程序                           ┃
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 [opener]
+# Edit with Neovide (GUI Neovim) | 使用 Neovide（GUI Neovim）编辑
 edit = [{ run = 'neovide "$@"', orphan = true, desc = "Neovide (GUI)" }]
+
+# Play video with VLC | 使用 VLC 播放视频
 video_play = [{ run = 'vlc "$@"', orphan = true, desc = "VLC Media Player" }]
+
+# View image with imv | 使用 imv 查看图像
 image_view = [{ run = 'imv -w none "$@"', orphan = true, desc = "imv Image Viewer" }]
+
+# Open with LibreOffice | 使用 LibreOffice 打开
 libreoffice = [{ run = 'libreoffice "$@"', orphan = true, desc = "LibreOffice" }]
+
+# View with Diive | 使用 Diive 查看
 diive = [{ run = 'diive "$@"', orphan = true, desc = "Diive Image Viewer" }]
 
-# Open rules - using new prepend_rules syntax
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#              Open Rules | 打开规则                        ┃
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 [open]
+# Prepend rules (checked first) | 前置规则（优先检查）
 prepend_rules = [
+    # Video files | 视频文件
     { name = "*.avi", use = ["video_play"] },
+    { name = "*.mov", use = ["video_play"] },
+    { name = "*.mkv", use = ["video_play"] },
+    { name = "*.mp4", use = ["video_play"] },
+    { name = "*.webm", use = ["video_play"] },
+
+    # Image files | 图像文件
     { name = "*.bmp", use = ["image_view"] },
-    { name = "*.doc", use = ["libreoffice"] },
-    { name = "*.docx", use = ["libreoffice"] },
     { name = "*.gif", use = ["image_view"] },
     { name = "*.heic", use = ["image_view"] },
     { name = "*.heif", use = ["image_view"] },
     { name = "*.jpeg", use = ["image_view"] },
     { name = "*.jpg", use = ["image_view"] },
-    { name = "*.mov", use = ["video_play"] },
-    { name = "*.mkv", use = ["video_play"] },
-    { name = "*.mp4", use = ["video_play"] },
-    { name = "*.pdf", use = ["libreoffice"] },
     { name = "*.png", use = ["image_view"] },
-    { name = "*.ppt", use = ["libreoffice"] },
-    { name = "*.pptx", use = ["libreoffice"] },
     { name = "*.webp", use = ["image_view"] },
-    { name = "*.webm", use = ["video_play"] },
-    { name = "*.xls", use = ["libreoffice"] },
-    { name = "*.xlsx", use = ["libreoffice"] },
-    { mime = "text/*", use = ["edit"] },
     { mime = "image/svg+xml", use = ["image_view"] },
     { mime = "image/*", use = ["image_view"] },
-    { mime = "video/*", use = ["video_play"] },
-    { mime = "audio/*", use = ["video_play"] },
-]
-append_rules = [{ name = "*", use = ["edit"] }]
 
-# Plugin configuration
+    # Office documents | 办公文档
+    { name = "*.doc", use = ["libreoffice"] },
+    { name = "*.docx", use = ["libreoffice"] },
+    { name = "*.xls", use = ["libreoffice"] },
+    { name = "*.xlsx", use = ["libreoffice"] },
+    { name = "*.ppt", use = ["libreoffice"] },
+    { name = "*.pptx", use = ["libreoffice"] },
+    { name = "*.pdf", use = ["libreoffice"] },
+
+    # Audio files (use video player as fallback) | 音频文件（使用视频播放器作为回退）
+    { mime = "audio/*", use = ["video_play"] },
+
+    # Text files | 文本文件
+    { mime = "text/*", use = ["edit"] },
+]
+
+# Append rules (checked last) | 后置规则（最后检查）
+append_rules = [{ name = "*", use = ["edit"] }]  # Default: open with editor | 默认：用编辑器打开
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#              Plugin Configuration | 插件配置              ┃
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 [plugin]
-# preload all plugins here
-preload = ["git.yazi"]
+# Preload plugins here | 在此预加载插件
+preload = ["git.yazi"]  # Git integration plugin | Git 集成插件
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#              Input Keymap | 输入按键映射                  ┃
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 [keymap]
 input.keymap = [
+    # Close input mode | 关闭输入模式
     { run = "close", on = ["<Esc>"] },
+
+    # Backward delete (delete previous character) | 向后删除（删除前一个字符）
     { run = "backward_delete", on = ["<C-h>"] },
+
+    # Backward kill word (delete previous word) | 向后删除单词（删除前一个单词）
     { run = "backward_kill_word", on = ["<C-w>"] },
+
+    # Kill word (delete current word) | 删除单词（删除当前单词）
     { run = "kill_word", on = ["<A-d>"] },
+
+    # Home key | Home 键
     { run = "home", on = ["<Home>"] },
+
+    # End key | End 键
     { run = "end", on = ["<End>"] },
+
+    # Delete key | 删除键
     { run = "delete", on = ["<Delete>"] },
 ]

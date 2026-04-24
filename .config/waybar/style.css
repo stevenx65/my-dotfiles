@@ -1,34 +1,78 @@
-*{
-    /* `otf-font-awesome` and SpaceMono Nerd Font are required to be installed for icons */
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/*              Waybar Stylesheet | Waybar 样式表               */
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/*
+ * Required fonts:
+ *   - otf-font-awesome (for icons)
+ *   - SpaceMono Nerd Font (for additional icons)
+ *   - Fira Sans (for main text)
+ *
+ * 所需字体：
+ *   - otf-font-awesome（图标）
+ *   - SpaceMono Nerd Font（额外图标）
+ *   - Fira Sans（主文本）
+ */
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ *              Global Styles | 全局样式                       ┃
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+* {
+    /* Font stack with fallbacks | 字体栈带回退 */
     font-family: "Fira Sans Semibold", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
     font-size: 15px;
+    /* Smooth background color transitions | 平滑背景色过渡 */
     transition: background-color .3s ease-out;
 }
 
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ *              Waybar Window | Waybar 窗口                   ┃
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
 window#waybar {
+    /* Transparent background | 透明背景 */
     background: transparent;
+    /* Text color | 文字颜色 */
     color: #c0caf5;
-    font-family: 
+    /* Font stack for icons | 图标字体栈 */
+    font-family:
         SpaceMono Nerd Font,
         feather;
+    /* Background transition | 背景过渡 */
     transition: background-color .5s;
 }
 
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ *              Module Containers | 模块容器                  ┃
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
 .modules-left,
 .modules-center,
-.modules-right
-{
+.modules-right {
+    /* Semi-transparent dark background | 半透明深色背景 */
     background: rgba(0, 0, 8, .7);
+    /* Margins for spacing | 间距边距 */
     margin: 5px 10px;
+    /* Padding inside container | 容器内边距 */
     padding: 0 5px;
+    /* Rounded corners | 圆角 */
     border-radius: 15px;
 }
+
+/* Left modules padding | 左侧模块内边距 */
 .modules-left {
     padding: 0 5px;
 }
+
+/* Center modules padding | 中心模块内边距 */
 .modules-center {
     padding: 0 10px;
 }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ *              Module Styles | 模块样式                      ┃
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
 #clock,
 #battery,
@@ -48,10 +92,13 @@ window#waybar {
 #power-profiles-daemon,
 #language,
 #mpd {
+    /* Module padding | 模块内边距 */
     padding: 0 10px;
+    /* Rounded corners | 圆角 */
     border-radius: 15px;
 }
 
+/* Module hover effect | 模块悬停效果 */
 #clock:hover,
 #battery:hover,
 #cpu:hover,
@@ -70,44 +117,77 @@ window#waybar {
 #power-profiles-daemon:hover,
 #language:hover,
 #mpd:hover {
+    /* Darker background on hover | 悬停时深色背景 */
     background: rgba(26, 27, 38, 0.9);
 }
 
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ *              Workspace Buttons | 工作区按钮               ┃
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
 #workspaces button {
-  background: transparent;
-  font-family:
-    SpaceMono Nerd Font,
-    feather;
-  font-weight: 900;
-  font-size: 13pt;
-  color: #c0caf5;
-  border:none;
-  border-radius: 15px;
+    /* Transparent background | 透明背景 */
+    background: transparent;
+    /* Icon font | 图标字体 */
+    font-family:
+        SpaceMono Nerd Font,
+        feather;
+    /* Bold font weight | 粗体字重 */
+    font-weight: 900;
+    /* Font size | 字体大小 */
+    font-size: 13pt;
+    /* Text color | 文字颜色 */
+    color: #c0caf5;
+    /* No border | 无边框 */
+    border:none;
+    /* Rounded corners | 圆角 */
+    border-radius: 15px;
 }
 
+/* Active workspace button | 活动工作区按钮 */
 #workspaces button.active {
+    /* Active background color | 活动背景色 */
     background: #89b4fa;
+    /* Active text color | 活动文字颜色 */
     color: #11111b;
 }
 
+/* Hover workspace button | 悬停工作区按钮 */
 #workspaces button:hover {
-  background: #11111b;
-  color: #cdd6f4;
-  box-shadow: none;
+    /* Hover background | 悬停背景 */
+    background: #11111b;
+    /* Hover text color | 悬停文字颜色 */
+    color: #cdd6f4;
+    /* No shadow | 无阴影 */
+    box-shadow: none;
 }
 
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ *              Custom Arch Icon | 自定义 Arch 图标          ┃
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
 #custom-arch {
+    /* Left margin | 左边距 */
     margin-left: 5px;
+    /* Padding | 内边距 */
     padding: 0 10px;
+    /* Large font size | 大字体大小 */
     font-size: 25px;
+    /* Color transition | 颜色过渡 */
     transition: color .5s;
 }
+
+/* Arch icon hover | Arch 图标悬停 */
 #custom-arch:hover {
+    /* Hover color | 悬停颜色 */
     color: #1793d1;
 }
 
-/* 当没有窗口聚焦时，彻底隐藏中间的黑条 */
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ *              Empty Window | 空窗口                       ┃
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* Hide center bar when no window is focused | 无窗口聚焦时隐藏中心黑条 */
 window#waybar #window.empty {
     background-color: transparent;
     border: none;
@@ -115,21 +195,25 @@ window#waybar #window.empty {
     margin: 0;
 }
 
-/* 蓝牙模块风格 */
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ *              Bluetooth Module | 蓝牙模块                  ┃
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* Bluetooth module style | 蓝牙模块样式 */
 #bluetooth {
     padding: 0 10px;
-    margin: 5px 10px; /* 保持和其他模块一样的边距 */
-    border-radius: 15px; /* 保持原有的圆角风格 */
-    background-color: #313244; /* 这里填该主题的背景色，通常是深蓝色或灰色 */
-    color: #89b4fa; /* 填该主题的图标颜色 */
+    margin: 5px 10px; /* Keep same margin as other modules | 保持与其他模块相同的边距 */
+    border-radius: 15px; /* Keep same rounded style | 保持相同圆角风格 */
+    background-color: #313244; /* Theme background color | 主题背景色 */
+    color: #89b4fa; /* Theme icon color | 主题图标颜色 */
 }
 
-/* 蓝牙关闭时的颜色 (可选) */
+/* Bluetooth disabled color | 蓝牙禁用颜色 */
 #bluetooth.disabled {
     color: #45475a;
 }
 
-/* 蓝牙连接时的颜色 (可选) */
+/* Bluetooth connected color | 蓝牙已连接颜色 */
 #bluetooth.connected {
     background-color: #89b4fa;
     color: #11111b;

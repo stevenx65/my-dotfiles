@@ -1,71 +1,118 @@
-# Mako Notification Daemon Configuration
-# 迁移自 SwayNC 配置
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#           Mako Notification Daemon                       ┃
+#              通知守护进程配置                             ┃
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-# 位置和锚点（对应 swaync: positionX/right, positionY/top）
-# anchor 可选: top-left, top-center, top-right, bottom-left, bottom-center, bottom-right, left, center, right
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#              Position & Layout | 位置与布局               ┃
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Anchor position (top-left, top-center, top-right, bottom-left, bottom-center, bottom-right, left, center, right)
+# 锚点位置（左上、中上、右上、左下、中下、右下、左、中、右）
 anchor=top-right
 
-# 边距 (单一margin值)
+# Margin from screen edge (pixels) | 屏幕边缘边距（像素）
 margin=10
 
-# 通知尺寸（对应 notification-window-width）
+# Notification width (pixels) | 通知宽度（像素）
 width=500
 
-# 超时设置（毫秒，mako使用毫秒）
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#              Timing | 时间设置                            ┃
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Default timeout (milliseconds) | 默认超时（毫秒）
 default-timeout=5000
 
-# 分层（对应 layer: overlay）
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#              Appearance | 外观设置                        ┃
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Layer (overlay, top, or bottom) | 层级（覆盖层、顶层或底层）
 layer=overlay
 
-# 字体设置（匹配 swaync 样式）
+# Font family and size | 字体家族和大小
 font=monospace 11
 
-# 背景颜色（对应 swaync --cc-bg）
-# 使用 RGBA: rgba(46, 46, 46, 0.7) = #2e2e2e + B3 (0.7 opacity)
+# Background color (RGBA format) | 背景颜色（RGBA 格式）
+# #2e2e2eb3 = #2e2e2e with 70% opacity | 带 70% 透明度的 #2e2e2e
 background-color=#2e2e2eb3
 
-# 文字颜色（对应 text-color）
+# Text color | 文字颜色
 text-color=#ffffff
 
-# 边框设置（对应 --noti-border-color）
-border-color=#ffffff26
-border-size=1
-border-radius=12
+# Border settings | 边框设置
+border-color=#ffffff26      # Border color | 边框颜色
+border-size=1               # Border size (pixels) | 边框大小（像素）
+border-radius=12            # Border radius (pixels) | 边框半径（像素）
 
-# 图标设置（对应 notification-icon-size）
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#              Icons | 图标设置                             ┃
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Icon search paths | 图标搜索路径
 icon-path=/usr/share/icons/hicolor/48x48/status:/usr/share/icons/hicolor/48x48/apps
+
+# Maximum icon size (pixels) | 最大图标大小（像素）
 max-icon-size=64
+
+# Enable icons | 启用图标
 icons=1
 
-# 内边距
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#              Padding & Spacing | 内边距与间距             ┃
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Padding inside notification (pixels) | 通知内边距（像素）
 padding=10
 
-# 标记通知为活动时的行为 - 播放提示音
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#              Sound & Actions | 声音与动作                 ┃
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Sound command on notification | 通知时播放声音命令
+# Plays system sound when notification arrives | 收到通知时播放系统声音
 on-notify=exec canberra-gtk-play -i message
 
-# 格式设置
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#              Formatting | 格式设置                        ┃
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Notification format: %s = summary, %b = body | 通知格式：%s=摘要，%b=正文
 format=<b>%s</b>\n%b
+
+# Enable markup (Pango) | 启用标记（Pango）
 markup=1
 
-# 动作按钮
+# Enable actions (clickable buttons) | 启用动作（可点击按钮）
 actions=1
 
-# 历史通知数量
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#              History | 历史记录                          ┃
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Maximum history entries | 最大历史记录条目
 max-history=10
 
-# 隐藏时保留通知
+# Keep history when hidden | 隐藏时保留历史记录
 history=1
 
-# 按紧急程度分类处理样式
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#              Urgency Levels | 紧急程度                   ┃
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Low urgency notifications | 低紧急程度通知
 [urgency=low]
 default-timeout=5000
 background-color=#2e2e2eb2
 
+# Normal urgency notifications | 正常紧急程度通知
 [urgency=normal]
 default-timeout=5000
 background-color=#2e2e2eb3
 
+# Critical urgency notifications | 紧急程度通知
 [urgency=critical]
 default-timeout=6000
 background-color=#3e2e2ecc
-on-notify=exec canberra-gtk-play -i dialog-warning
+on-notify=exec canberra-gtk-play -i dialog-warning  # Warning sound | 警告声音
