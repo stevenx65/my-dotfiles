@@ -1,4 +1,5 @@
-# Stow configuration file
-# Links packages to ~/.config/
---target=${HOME}/.config
+# Stow configuration file | Stow 配置文件
+# Links packages to ~/.config/ | 将包链接到 ~/.config/
+
+--target=$HOME
 --dir=.config
