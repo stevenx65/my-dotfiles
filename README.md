@@ -16,10 +16,12 @@
 | Kitty | 0.46.2 | Terminal emulator | 终端模拟器 |
 | Mako | 1.11.0 | Notification daemon | 通知守护进程 |
 | Tmux | 3.6 | Terminal multiplexer | 终端复用器 |
+| Fish | 3.7.0 | Shell | Shell |
 
 **Features** / **功能**:
 - Yazi: Neovide default editor, imv image viewer, LibreOffice office documents | Neovide 默认编辑器，imv 图片查看器，LibreOffice 办公文档
 - Mako: Desktop notifications with sound support (using libcanberra) | 桌面通知支持声音提示（使用 libcanberra）
+- Fish: Smart shell with syntax highlighting and smart completions | 智能 Shell，支持语法高亮和智能补全
 
 > **Neovim**: Not included in this repo. Please install [LazyVim](https://www.lazyvim.org/) separately:
 >
@@ -72,8 +74,8 @@ stow hypr kitty waybar yazi mako tmux
 # 只安装 Hyprland 和 Waybar
 ./install.sh -c hypr -c waybar
 
-# 只安装 tmux（跳过确认）
-./install.sh -c tmux -y
+# 只安装 fish（跳过确认）
+./install.sh -c fish -y
 
 # 显示帮助
 ./install.sh -h
@@ -89,6 +91,7 @@ stow hypr kitty waybar yazi mako tmux
 | `yazi` | Yazi 文件管理器配置 |
 | `mako` | Mako 通知守护进程配置 |
 | `tmux` | Tmux 终端复用器配置 |
+| `fish` | Fish shell 配置 |
 
 > 请查看 [install.sh](install.sh) 源码了解具体行为后再运行。
 

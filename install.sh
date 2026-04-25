@@ -164,12 +164,14 @@ Available configurations | 可用配置:
   yazi    - Yazi file manager configuration | Yazi 文件管理器配置
   mako    - Mako notification daemon configuration | Mako 通知守护进程配置
   tmux    - Tmux terminal multiplexer configuration | Tmux 终端复用器配置
+  fish    - Fish shell configuration | Fish shell 配置
 
 Examples | 示例:
   $0                          # Install all configurations | 安装所有配置
   $0 -c hypr -c waybar        # Install only Hyprland and Waybar | 仅安装 Hyprland 和 Waybar
   $0 -l                       # List available configurations | 列出可用配置
   $0 -c tmux -y               # Install only tmux without confirmation | 仅安装 tmux 且跳过确认
+  $0 -c fish -y               # Install only fish without confirmation | 仅安装 fish 且跳过确认
 
 EOF
 }
@@ -187,6 +189,7 @@ list_configs() {
   echo "  yazi    - Yazi file manager configuration | Yazi 文件管理器配置"
   echo "  mako    - Mako notification daemon configuration | Mako 通知守护进程配置"
   echo "  tmux    - Tmux terminal multiplexer configuration | Tmux 终端复用器配置"
+  echo "  fish    - Fish shell configuration | Fish shell 配置"
 }
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -231,7 +234,7 @@ done
 # Default: install all configurations if none specified
 # 默认：如果未指定，则安装所有配置
 if [[ ${#CONFIGS_TO_INSTALL[@]} -eq 0 ]]; then
-  CONFIGS_TO_INSTALL=("hypr" "waybar" "kitty" "yazi" "mako" "tmux")
+  CONFIGS_TO_INSTALL=("hypr" "waybar" "kitty" "yazi" "mako" "tmux" "fish")
 fi
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
