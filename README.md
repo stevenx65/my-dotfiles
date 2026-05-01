@@ -1,5 +1,13 @@
 # Dotfiles | 配置文件
 
+> **⚠️ 停止更新 / No Longer Maintained**
+>
+> 作者已切换到 [end-4/dots-hyprland](https://github.com/end-4/dots-hyprland) 配置，此仓库不再更新。
+>
+> The author has moved to [end-4/dots-hyprland](https://github.com/end-4/dots-hyprland). This repository is no longer maintained.
+
+---
+
 > Personal Arch Linux dotfiles with Hyprland, Kitty, Waybar, Yazi and more.
 >
 > 个人 Arch Linux + Hyprland 配置文件，包含 Kitty、Waybar、Yazi 等工具。
